@@ -1,0 +1,185 @@
+[gd_scene load_steps=26 format=3 uid="uid://bgo0wc0e8eqei"]
+
+[ext_resource type="Script" path="res://Principale.gd" id="1_tlilw"]
+[ext_resource type="PackedScene" uid="uid://b3lg3fiqe24ck" path="res://Ennemi.tscn" id="3_edt7p"]
+[ext_resource type="PackedScene" uid="uid://cif2wd44530ww" path="res://Ramp.tscn" id="4_b6kic"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="5_3jyx7"]
+[ext_resource type="PackedScene" uid="uid://h2qqkgtxs6wf" path="res://Car.tscn" id="5_yg5h2"]
+[ext_resource type="Script" path="res://RigidBody3D.gd" id="6_2isgp"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w25bi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxl4b"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lloea"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8iks"]
+size = Vector3(3.00589, 1.49061, 0.997784)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tkpa"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_57oef"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7o0r"]
+albedo_color = Color(0, 0.698039, 0.0235294, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s2tk1"]
+
+[sub_resource type="Gradient" id="Gradient_vmk5g"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0hp7e"]
+gradient = SubResource("Gradient_vmk5g")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xcjb"]
+albedo_color = Color(0.160784, 0, 0.968627, 1)
+albedo_texture = SubResource("GradientTexture1D_0hp7e")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gfcud"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_krtvp"]
+points = PackedVector3Array(-0.214183, -0.948028, -0.451129, 0.0227317, 0.952146, 0.498887, 0.171488, 0.951995, 0.469018, -0.125934, 0.952684, -0.483291, 0.499663, -0.953674, -0.00688883, -0.387646, -0.93796, 0.315653, -0.483292, 0.952686, -0.12593, 0.375097, 0.940128, -0.329816, 0.171488, -0.951995, 0.469018, 0.140783, -0.945485, -0.479579, 0.469014, 0.952011, 0.171499, -0.387646, 0.93796, 0.315653, -0.483292, -0.952686, -0.12593, -0.183511, -0.943076, 0.464698, 0.407412, -0.946994, 0.288983, 0.375097, -0.940128, -0.329816, -0.395154, 0.955761, -0.305523, -0.479555, 0.945437, 0.14088, 0.464698, 0.943099, -0.183512, 0.140783, 0.945485, -0.479579, -0.243203, 0.945955, 0.436491, -0.479555, -0.945437, 0.14088, 0.288971, 0.946988, 0.407421, -0.395154, -0.955761, -0.305523, -0.0069906, -0.953641, 0.499658, 0.499663, 0.953674, -0.00688883, -0.271948, 0.943071, -0.419217, 0.464698, -0.943099, -0.183512, -0.125934, -0.952684, -0.483291, 0.315648, 0.937973, -0.387651, 0.469014, -0.952011, 0.171499, 0.407412, 0.946994, 0.288983)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nb04v"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6ru6h"]
+points = PackedVector3Array(-0.214183, -0.948028, -0.451129, 0.0227317, 0.952146, 0.498887, 0.171488, 0.951995, 0.469018, -0.125934, 0.952684, -0.483291, 0.499663, -0.953674, -0.00688883, -0.387646, -0.93796, 0.315653, -0.483292, 0.952686, -0.12593, 0.375097, 0.940128, -0.329816, 0.171488, -0.951995, 0.469018, 0.140783, -0.945485, -0.479579, 0.469014, 0.952011, 0.171499, -0.387646, 0.93796, 0.315653, -0.483292, -0.952686, -0.12593, -0.183511, -0.943076, 0.464698, 0.407412, -0.946994, 0.288983, 0.375097, -0.940128, -0.329816, -0.395154, 0.955761, -0.305523, -0.479555, 0.945437, 0.14088, 0.464698, 0.943099, -0.183512, 0.140783, 0.945485, -0.479579, -0.243203, 0.945955, 0.436491, -0.479555, -0.945437, 0.14088, 0.288971, 0.946988, 0.407421, -0.395154, -0.955761, -0.305523, -0.0069906, -0.953641, 0.499658, 0.499663, 0.953674, -0.00688883, -0.271948, 0.943071, -0.419217, 0.464698, -0.943099, -0.183512, -0.125934, -0.952684, -0.483291, 0.315648, 0.937973, -0.387651, 0.469014, -0.952011, 0.171499, 0.407412, 0.946994, 0.288983)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yns70"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m6xl8"]
+points = PackedVector3Array(-0.214183, -0.948028, -0.451129, 0.0227317, 0.952146, 0.498887, 0.171488, 0.951995, 0.469018, -0.125934, 0.952684, -0.483291, 0.499663, -0.953674, -0.00688883, -0.387646, -0.93796, 0.315653, -0.483292, 0.952686, -0.12593, 0.375097, 0.940128, -0.329816, 0.171488, -0.951995, 0.469018, 0.140783, -0.945485, -0.479579, 0.469014, 0.952011, 0.171499, -0.387646, 0.93796, 0.315653, -0.483292, -0.952686, -0.12593, -0.183511, -0.943076, 0.464698, 0.407412, -0.946994, 0.288983, 0.375097, -0.940128, -0.329816, -0.395154, 0.955761, -0.305523, -0.479555, 0.945437, 0.14088, 0.464698, 0.943099, -0.183512, 0.140783, 0.945485, -0.479579, -0.243203, 0.945955, 0.436491, -0.479555, -0.945437, 0.14088, 0.288971, 0.946988, 0.407421, -0.395154, -0.955761, -0.305523, -0.0069906, -0.953641, 0.499658, 0.499663, 0.953674, -0.00688883, -0.271948, 0.943071, -0.419217, 0.464698, -0.943099, -0.183512, -0.125934, -0.952684, -0.483291, 0.315648, 0.937973, -0.387651, 0.469014, -0.952011, 0.171499, 0.407412, 0.946994, 0.288983)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tvmkw"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x3tnx"]
+points = PackedVector3Array(-0.214183, -0.948028, -0.451129, 0.0227317, 0.952146, 0.498887, 0.171488, 0.951995, 0.469018, -0.125934, 0.952684, -0.483291, 0.499663, -0.953674, -0.00688883, -0.387646, -0.93796, 0.315653, -0.483292, 0.952686, -0.12593, 0.375097, 0.940128, -0.329816, 0.171488, -0.951995, 0.469018, 0.140783, -0.945485, -0.479579, 0.469014, 0.952011, 0.171499, -0.387646, 0.93796, 0.315653, -0.483292, -0.952686, -0.12593, -0.183511, -0.943076, 0.464698, 0.407412, -0.946994, 0.288983, 0.375097, -0.940128, -0.329816, -0.395154, 0.955761, -0.305523, -0.479555, 0.945437, 0.14088, 0.464698, 0.943099, -0.183512, 0.140783, 0.945485, -0.479579, -0.243203, 0.945955, 0.436491, -0.479555, -0.945437, 0.14088, 0.288971, 0.946988, 0.407421, -0.395154, -0.955761, -0.305523, -0.0069906, -0.953641, 0.499658, 0.499663, 0.953674, -0.00688883, -0.271948, 0.943071, -0.419217, 0.464698, -0.943099, -0.183512, -0.125934, -0.952684, -0.483291, 0.315648, 0.937973, -0.387651, 0.469014, -0.952011, 0.171499, 0.407412, 0.946994, 0.288983)
+
+[node name="Principale" type="Node3D"]
+script = ExtResource("1_tlilw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-3.09086e-08, 0.707107, -0.707107, 3.09086e-08, 0.707107, 0.707107, 1, 1.77636e-15, -4.37114e-08, -10.5067, 7.64337, 0)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="GroundCollision" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_w25bi")
+
+[node name="GroundShape" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(12, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xxl4b")
+mesh = SubResource("PlaneMesh_lloea")
+
+[node name="Ramp" parent="." instance=ExtResource("4_b6kic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
+
+[node name="IHM_2D" type="Panel" parent="."]
+offset_right = 132.0
+offset_bottom = 40.0
+
+[node name="LblVitesse" type="Label" parent="IHM_2D"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 76.0
+offset_top = 7.0
+offset_right = 126.0
+offset_bottom = 33.0
+
+[node name="Vitesse" type="Label" parent="IHM_2D"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 76.0
+offset_bottom = 33.0
+text = "Vitesse : "
+
+[node name="Ennemis" type="Node3D" parent="."]
+
+[node name="Ennemi" parent="Ennemis" instance=ExtResource("3_edt7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.5, -5.756)
+
+[node name="Ennemi2" parent="Ennemis" instance=ExtResource("3_edt7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.316, 0.5, 3.503)
+
+[node name="Ennemi3" parent="Ennemis" instance=ExtResource("3_edt7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.614, 0.5, 5.308)
+
+[node name="Ennemi4" parent="Ennemis" instance=ExtResource("3_edt7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.149, 0.5, -5.69)
+
+[node name="RampCollision" type="CollisionPolygon3D" parent="Ennemis"]
+transform = Transform3D(1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 1, -0.5, -4.99494)
+polygon = PackedVector2Array(3.87782, 1.98742, -1.87589, 0.077474)
+
+[node name="Car" parent="." instance=ExtResource("5_yg5h2")]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 3.452, 5.159)
+fov = 92.8
+script = ExtResource("5_3jyx7")
+
+[node name="RigidBody3D" type="VehicleBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.593869, 5.12916)
+linear_damp = 10.0
+angular_damp = 10.0
+script = ExtResource("6_2isgp")
+
+[node name="CarCollision" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.609911, 0)
+shape = SubResource("BoxShape3D_u8iks")
+
+[node name="CarBody" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(-1.31134e-07, 0, 1, 0, 1, 0, -3, 0, -4.37114e-08, 0, 0.361273, 0)
+material_override = SubResource("StandardMaterial3D_0tkpa")
+mesh = SubResource("BoxMesh_57oef")
+skeleton = NodePath("../..")
+
+[node name="CarHead" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 0.5, 0, -2, 0, -4.37114e-08, 0.000568271, 1.10614, 0.500199)
+material_override = SubResource("StandardMaterial3D_e7o0r")
+mesh = SubResource("BoxMesh_s2tk1")
+
+[node name="Wheel_front_right" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0.2, -4.37114e-08, 0, -8.74228e-09, -1, -1, -8.74228e-09, 1.91069e-15, 0.702578, 0, -1.08869)
+material_override = SubResource("StandardMaterial3D_8xcjb")
+mesh = SubResource("CylinderMesh_gfcud")
+
+[node name="Collision" type="CollisionShape3D" parent="RigidBody3D/Wheel_front_right"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.17595e-22, 0, -1.67038e-23, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_krtvp")
+
+[node name="Wheel_rear_right" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0.2, -4.37114e-08, 0, -8.74228e-09, -1, -1, -8.74228e-09, 1.91069e-15, 0.701315, 0, 0.991888)
+material_override = SubResource("StandardMaterial3D_8xcjb")
+mesh = SubResource("CylinderMesh_nb04v")
+
+[node name="Collision" type="CollisionShape3D" parent="RigidBody3D/Wheel_rear_right"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.17595e-22, 0, -1.67038e-23, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_6ru6h")
+
+[node name="Wheel_rear_left" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0.2, -4.37114e-08, 0, -8.74228e-09, -1, -1, -8.74228e-09, 1.91069e-15, -0.699053, 0, 0.998233)
+material_override = SubResource("StandardMaterial3D_8xcjb")
+mesh = SubResource("CylinderMesh_yns70")
+
+[node name="Collision" type="CollisionShape3D" parent="RigidBody3D/Wheel_rear_left"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.17595e-22, 0, -1.67038e-23, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_m6xl8")
+
+[node name="Wheel_front_left" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0.2, -4.37114e-08, 0, -8.74228e-09, -1, -1, -8.74228e-09, 1.91069e-15, -0.699324, -2.98023e-08, -1.10085)
+material_override = SubResource("StandardMaterial3D_8xcjb")
+mesh = SubResource("CylinderMesh_tvmkw")
+
+[node name="Collision" type="CollisionShape3D" parent="RigidBody3D/Wheel_front_left"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.17595e-22, 0, -1.67038e-23, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_x3tnx")
+
+[node name="Camera3D" type="Camera3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.936916, 0.349553, 0, -0.349553, 0.936916, 0, 3.04211, 3.75395)

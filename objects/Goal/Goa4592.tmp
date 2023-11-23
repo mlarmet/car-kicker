@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhofrch4itxup"]
+
+[ext_resource type="Script" path="res://Goal/Goal.gd" id="1_iw4ut"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_umodi"]
+size = Vector3(7.5, 4.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2aux"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jgle2"]
+radius = 0.4
+height = 9.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vfs3"]
+radius = 0.4
+height = 9.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rht1l"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_e5ob3"]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 5.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d5hh6"]
+height = 5.0
+radius = 0.4
+
+[node name="Goal" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 0)
+script = ExtResource("1_iw4ut")
+player = null
+
+[node name="GoalArea" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.25, 0)
+shape = SubResource("BoxShape3D_umodi")
+
+[node name="TopBar" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2.5, 2, 0)
+
+[node name="TopBarShape" type="MeshInstance3D" parent="TopBar"]
+material_override = SubResource("StandardMaterial3D_c2aux")
+mesh = SubResource("CapsuleMesh_jgle2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TopBar"]
+shape = SubResource("CapsuleShape3D_4vfs3")
+
+[node name="LeftBar" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="LeftBarShape" type="MeshInstance3D" parent="LeftBar"]
+material_override = SubResource("StandardMaterial3D_rht1l")
+mesh = SubResource("CylinderMesh_e5ob3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftBar"]
+shape = SubResource("CylinderShape3D_d5hh6")
+
+[node name="RightBar" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 0)
+
+[node name="RightBarShape" type="MeshInstance3D" parent="RightBar"]
+material_override = SubResource("StandardMaterial3D_rht1l")
+mesh = SubResource("CylinderMesh_e5ob3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightBar"]
+shape = SubResource("CylinderShape3D_d5hh6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,684 @@
+[gd_scene load_steps=34 format=3 uid="uid://bgo0wc0e8eqei"]
+
+[ext_resource type="Script" path="res://scenes/Principale/Principale.gd" id="1_v3owm"]
+[ext_resource type="PackedScene" uid="uid://bexa8dbpb00u0" path="res://objects/Ramp/CornerRamp.tscn" id="2_01k43"]
+[ext_resource type="PackedScene" uid="uid://h1imqodcfc2g" path="res://objects/Ramp/CornerRampLarge.tscn" id="3_ggrot"]
+[ext_resource type="PackedScene" uid="uid://cif2wd44530ww" path="res://objects/Ramp/Ramp.tscn" id="4_fgcg6"]
+[ext_resource type="PackedScene" uid="uid://dhofrch4itxup" path="res://objects/Goal/Goal.tscn" id="5_b5n13"]
+[ext_resource type="PackedScene" uid="uid://bdthy75hm4e2s" path="res://objects/BoostPad/BoostPad.tscn" id="5_tgyfp"]
+[ext_resource type="PackedScene" uid="uid://b3lg3fiqe24ck" path="res://objects/Ball/Ball.tscn" id="6_0505e"]
+[ext_resource type="PackedScene" uid="uid://b7mtgkslstqk4" path="res://objects/Vehicle/Vehicle.tscn" id="7_cxwvi"]
+[ext_resource type="PackedScene" uid="uid://dund3snlbfun1" path="res://objects/SpotLight/SpotLight.tscn" id="8_v536s"]
+[ext_resource type="AudioStream" uid="uid://dc6nlii1kfepq" path="res://assets/audios/goal_sound.mp3" id="9_pyoay"]
+[ext_resource type="AudioStream" uid="uid://d2wkya3asvjds" path="res://assets/audios/count_down_sound.mp3" id="10_v21k0"]
+[ext_resource type="Script" path="res://SplitScreen.gd" id="11_3yvml"]
+[ext_resource type="AudioStream" uid="uid://c5br5vhx7us8y" path="res://assets/audios/bonus_take_sound.mp3" id="12_0sg0l"]
+[ext_resource type="Script" path="res://Pause_Menu.gd" id="12_wc3hi"]
+[ext_resource type="FontFile" uid="uid://6y4nk0acb1db" path="res://assets/fonts/bruce-forever/BruceForeverRegular-X3jd2.ttf" id="14_wik5q"]
+
+[sub_resource type="Sky" id="Sky_cj6b8"]
+
+[sub_resource type="Environment" id="Environment_l1fof"]
+background_mode = 1
+background_color = Color(0.337255, 0.517647, 0.909804, 1)
+sky = SubResource("Sky_cj6b8")
+ambient_light_source = 2
+ambient_light_color = Color(0.301961, 0.301961, 0.301961, 1)
+glow_blend_mode = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v60t2"]
+size = Vector3(91, 12, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4e11x"]
+size = Vector3(66, 12, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06cv4"]
+size = Vector3(91, 0.1, 66)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w25bi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wyye7"]
+albedo_color = Color(0.0196078, 0.384314, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uei1j"]
+size = Vector2(91, 66)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2tn4"]
+bg_color = Color(0.870588, 0, 0, 1)
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jx1j"]
+bg_color = Color(0, 0.180392, 1, 1)
+corner_radius_top_left = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57ov8"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1huv"]
+bg_color = Color(0, 0, 0, 0.639216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwwbo"]
+bg_color = Color(0.435294, 0.686275, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.435294, 0.686275, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 2
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pagj"]
+bg_color = Color(0.294118, 0.466667, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.294118, 0.466667, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 2
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk0rs"]
+bg_color = Color(0.2, 0.329412, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.329412, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 2
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmrmo"]
+bg_color = Color(0.839216, 0, 0.109804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.839216, 0, 0.109804, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 2
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onmw2"]
+bg_color = Color(0.596078, 0, 0.0666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.596078, 0, 0.0666667, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 2
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8c1x"]
+bg_color = Color(0.388235, 0, 0.027451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.388235, 0, 0.027451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 2
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 2
+
+[node name="Principale" type="Node3D"]
+script = ExtResource("1_v3owm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l1fof")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.644124, 0.764921, 0, -0.764921, 0.644124, 0, 25.229, 34.5)
+fov = 79.5
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="BoostPads" type="Node3D" parent="Objects"]
+
+[node name="BoostPad_1" parent="Objects/BoostPads" instance=ExtResource("5_tgyfp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, 20.435)
+
+[node name="BoostPad_2" parent="Objects/BoostPads" instance=ExtResource("5_tgyfp")]
+transform = Transform3D(1.31135e-07, 0, 1, 0, 1, 0, -1, 0, 1.31135e-07, 0, 2, -20)
+
+[node name="Corners" type="Node3D" parent="Objects"]
+
+[node name="CornerRampLeft" parent="Objects/Corners" instance=ExtResource("2_01k43")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -43.5, 0.5, 0)
+
+[node name="CornerRampRight" parent="Objects/Corners" instance=ExtResource("2_01k43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 0.5, 0)
+
+[node name="CornerRampLargeTop" parent="Objects/Corners" instance=ExtResource("3_ggrot")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.5, -30.997)
+
+[node name="CornerRampLargeBottom" parent="Objects/Corners" instance=ExtResource("3_ggrot")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5, 30.997)
+
+[node name="Walls" type="StaticBody3D" parent="Objects"]
+
+[node name="BigWall" type="CollisionShape3D" parent="Objects/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 33)
+shape = SubResource("BoxShape3D_v60t2")
+
+[node name="BigWall2" type="CollisionShape3D" parent="Objects/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -33)
+shape = SubResource("BoxShape3D_v60t2")
+
+[node name="SmallWall" type="CollisionShape3D" parent="Objects/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 45.5, 6, 0)
+shape = SubResource("BoxShape3D_4e11x")
+
+[node name="SmallWall2" type="CollisionShape3D" parent="Objects/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45.5, 6, 0)
+shape = SubResource("BoxShape3D_4e11x")
+
+[node name="Roof" type="CollisionShape3D" parent="Objects/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+shape = SubResource("BoxShape3D_06cv4")
+
+[node name="Ground" type="StaticBody3D" parent="Objects"]
+
+[node name="GroundCollision" type="CollisionShape3D" parent="Objects/Ground"]
+shape = SubResource("WorldBoundaryShape3D_w25bi")
+
+[node name="GroundShape" type="MeshInstance3D" parent="Objects/Ground"]
+material_override = SubResource("StandardMaterial3D_wyye7")
+mesh = SubResource("PlaneMesh_uei1j")
+
+[node name="Ramps" type="Node3D" parent="Objects"]
+
+[node name="Ramp" parent="Objects/Ramps" instance=ExtResource("4_fgcg6")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.5, 20.4347)
+
+[node name="Ramp2" parent="Objects/Ramps" instance=ExtResource("4_fgcg6")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0.5, -20)
+
+[node name="Goals" type="Node3D" parent="Objects"]
+
+[node name="GoalLeft" parent="Objects/Goals" instance=ExtResource("5_b5n13")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38, 2.55, 2.5)
+
+[node name="GoalRight" parent="Objects/Goals" instance=ExtResource("5_b5n13")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 38.713, 2.5, 2.5)
+player = 1
+
+[node name="Ball" parent="Objects" instance=ExtResource("6_0505e")]
+
+[node name="Vehicles" type="Node3D" parent="."]
+
+[node name="VehicleLeft" parent="Vehicles" instance=ExtResource("7_cxwvi")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 0, 0, 1, -27.5, 0.8, 0)
+
+[node name="VehicleRight" parent="Vehicles" instance=ExtResource("7_cxwvi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 27.5, 0.8, 0)
+player = 1
+
+[node name="NightNode" type="Node3D" parent="."]
+
+[node name="LightBottomRamp" type="OmniLight3D" parent="NightNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.75845, 20)
+distance_fade_begin = 4096.0
+omni_range = 11.411
+omni_attenuation = 0.00961831
+
+[node name="LightTopRamp" type="OmniLight3D" parent="NightNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.77, -20.492)
+distance_fade_begin = 4096.0
+omni_range = 11.4107
+omni_attenuation = 0.00961831
+
+[node name="LightLeftGoal" type="OmniLight3D" parent="NightNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8312, 8, 0)
+distance_fade_begin = 4096.0
+omni_range = 11.411
+omni_attenuation = 0.00961831
+
+[node name="LightRightGoal" type="OmniLight3D" parent="NightNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6914, 8, 0)
+distance_fade_begin = 4096.0
+omni_range = 11.411
+omni_attenuation = 0.00961831
+
+[node name="LightNode" type="Node3D" parent="."]
+
+[node name="Sun" type="DirectionalLight3D" parent="LightNode"]
+transform = Transform3D(-0.874008, -0.109861, 0.473329, 0.347494, -0.822199, 0.450818, 0.339643, 0.558498, 0.756784, -0.204257, 12.5941, 0)
+light_energy = 2.0
+shadow_enabled = true
+sky_mode = 1
+
+[node name="SpotLights" type="Node3D" parent="."]
+
+[node name="SpotLightTopLeft" parent="SpotLights" instance=ExtResource("8_v536s")]
+transform = Transform3D(0.823136, 0, -0.567844, 0, 1, 0, 0.567844, 0, 0.823136, -45, 3, -32.5)
+
+[node name="SpotLightTopRight" parent="SpotLights" instance=ExtResource("8_v536s")]
+transform = Transform3D(-0.707107, -3.16101e-08, -0.707107, 2.98023e-08, 1, -1.49012e-08, 0.707107, 1.05367e-08, -0.707107, 45, 3, -32.5)
+
+[node name="SpotLightBottomLeft" parent="SpotLights" instance=ExtResource("8_v536s")]
+transform = Transform3D(0.823572, 3.29965e-08, 0.567211, 2.98023e-08, 1, -1.49012e-08, -0.567211, -4.63204e-09, 0.823572, -45, 3, 32.5)
+
+[node name="SpotLightBottomRight" parent="SpotLights" instance=ExtResource("8_v536s")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 45, 3, 32.5)
+
+[node name="Audios" type="Node" parent="."]
+
+[node name="GoalSound" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("9_pyoay")
+
+[node name="CountDownSound" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("10_v21k0")
+volume_db = 5.0
+
+[node name="BonusTakeSound" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("12_0sg0l")
+volume_db = -5.0
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="GoalTimeoutTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="StartTimeoutTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="BoostPadDurationTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="BoostPadTimeoutTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="IHM" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SplitScreen" type="Control" parent="IHM"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_3yvml")
+
+[node name="GridContainer" type="GridContainer" parent="IHM/SplitScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="IHM/SplitScreen/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubViewport" type="SubViewport" parent="IHM/SplitScreen/GridContainer/SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_3d = true
+render_target_update_mode = 4
+
+[node name="VehicleLeft" parent="IHM/SplitScreen/GridContainer/SubViewportContainer/SubViewport" instance=ExtResource("7_cxwvi")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 0, 0, 1, -27.5, 0.8, 0)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="IHM/SplitScreen/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubViewport" type="SubViewport" parent="IHM/SplitScreen/GridContainer/SubViewportContainer2"]
+handle_input_locally = false
+audio_listener_enable_3d = true
+render_target_update_mode = 4
+
+[node name="VehicleRight" parent="IHM/SplitScreen/GridContainer/SubViewportContainer2/SubViewport" instance=ExtResource("7_cxwvi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 27.5, 0.8, 0)
+player = 1
+
+[node name="Infos" type="Control" parent="IHM"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vehicle_infos_left" type="Panel" parent="IHM/Infos"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 234.0
+grow_vertical = 0
+
+[node name="Marche" type="Label" parent="IHM/Infos/Vehicle_infos_left"]
+layout_mode = 2
+offset_left = 33.0
+offset_top = 27.0
+offset_right = 103.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "Sens :"
+vertical_alignment = 1
+
+[node name="LblMarche" type="Label" parent="IHM/Infos/Vehicle_infos_left/Marche"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 79.0
+offset_top = -1.0
+offset_right = 165.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "Arrière"
+vertical_alignment = 1
+
+[node name="Vitesse" type="Label" parent="IHM/Infos/Vehicle_infos_left"]
+layout_mode = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 72.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "Vitesse : "
+vertical_alignment = 1
+
+[node name="LblVitesse" type="Label" parent="IHM/Infos/Vehicle_infos_left/Vitesse"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 107.0
+offset_right = 222.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "100 Km/h"
+vertical_alignment = 1
+
+[node name="Boost" type="Label" parent="IHM/Infos/Vehicle_infos_left"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 51.0
+offset_right = 111.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "Boost : "
+vertical_alignment = 1
+
+[node name="LblBoost" type="Label" parent="IHM/Infos/Vehicle_infos_left/Boost"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 93.0
+offset_right = 154.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "100.0"
+vertical_alignment = 1
+
+[node name="Vehicle_infos_right" type="Panel" parent="IHM/Infos"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -234.0
+offset_top = -80.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Marche" type="Label" parent="IHM/Infos/Vehicle_infos_right"]
+layout_mode = 2
+offset_left = 35.0
+offset_top = 27.0
+offset_right = 105.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "Sens :"
+vertical_alignment = 1
+
+[node name="LblMarche_2" type="Label" parent="IHM/Infos/Vehicle_infos_right/Marche"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 78.0
+offset_top = -1.0
+offset_right = 164.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "Arrière"
+vertical_alignment = 1
+
+[node name="Vitesse" type="Label" parent="IHM/Infos/Vehicle_infos_right"]
+layout_mode = 2
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 113.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "Vitesse : "
+vertical_alignment = 1
+
+[node name="LblVitesse_2" type="Label" parent="IHM/Infos/Vehicle_infos_right/Vitesse"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 107.0
+offset_right = 222.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "100 Km/h"
+vertical_alignment = 1
+
+[node name="Boost" type="Label" parent="IHM/Infos/Vehicle_infos_right"]
+layout_mode = 2
+offset_left = 21.0
+offset_top = 51.0
+offset_right = 112.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "Boost : "
+vertical_alignment = 1
+
+[node name="LblBoost_2" type="Label" parent="IHM/Infos/Vehicle_infos_right/Boost"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 93.0
+offset_right = 154.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "100.0"
+vertical_alignment = 1
+
+[node name="Score" type="Panel" parent="IHM/Infos"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 1.0
+offset_right = 67.0
+offset_bottom = 27.0
+grow_horizontal = 2
+
+[node name="Timer" type="Label" parent="IHM/Infos/Score"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.5
+offset_right = 20.5
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("14_wik5q")
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreRight" type="Label" parent="IHM/Infos/Score"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_wik5q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b2tn4")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLeft" type="Label" parent="IHM/Infos/Score"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 21.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_wik5q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8jx1j")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="Panel" parent="IHM/Infos"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -135.0
+offset_bottom = 29.0
+grow_horizontal = 0
+
+[node name="NightLabel" type="Label" parent="IHM/Infos/Options"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 96.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("14_wik5q")
+theme_override_font_sizes/font_size = 12
+text = "Night mode"
+vertical_alignment = 1
+
+[node name="NightCheckBox" type="CheckBox" parent="IHM/Infos/Options/NightLabel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = -11.5
+offset_right = 27.0
+offset_bottom = 12.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="StartCountDown" type="Label" parent="IHM/Infos"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("14_wik5q")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_57ov8")
+text = "3"
+horizontal_alignment = 1
+
+[node name="Pause_Menu" type="Control" parent="IHM"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_wc3hi")
+
+[node name="Panel" type="Panel" parent="IHM/Pause_Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1huv")
+
+[node name="Actions" type="Control" parent="IHM/Pause_Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -46.5
+offset_right = 87.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume_btn" type="Button" parent="IHM/Pause_Menu/Panel/Actions"]
+layout_mode = 2
+offset_top = 13.0
+offset_right = 175.0
+offset_bottom = 40.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cwwbo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0pagj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tk0rs")
+text = "Resume"
+
+[node name="Quit_btn" type="Button" parent="IHM/Pause_Menu/Panel/Actions"]
+layout_mode = 2
+offset_top = 52.0
+offset_right = 175.0
+offset_bottom = 79.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jmrmo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_onmw2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v8c1x")
+text = "Quit"
+
+[connection signal="toggled" from="IHM/Infos/Options/NightLabel/NightCheckBox" to="." method="_on_night_check_box_toggled"]
+[connection signal="pressed" from="IHM/Pause_Menu/Panel/Actions/Resume_btn" to="IHM/Pause_Menu" method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="IHM/Pause_Menu/Panel/Actions/Quit_btn" to="IHM/Pause_Menu" method="_on_quit_btn_pressed"]

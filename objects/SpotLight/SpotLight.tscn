@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://dund3snlbfun1"]
+
+[ext_resource type="Script" path="res://objects/SpotLight/SpotLight.gd" id="1_jcj8q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q74qm"]
+albedo_color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a4t20"]
+size = Vector3(0.5, 6, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i54qy"]
+size = Vector3(0.5, 6, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0uxo"]
+albedo_color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ryy4y"]
+size = Vector3(1, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7panh"]
+size = Vector3(1, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3cow"]
+albedo_color = Color(1, 1, 0.117647, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pdnk8"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.001
+
+[node name="SpotLight" type="StaticBody3D"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, 2.98023e-08, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 0, 0)
+script = ExtResource("1_jcj8q")
+
+[node name="SpotLightBar" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_q74qm")
+mesh = SubResource("BoxMesh_a4t20")
+
+[node name="SpotLightBarCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -4.44089e-16, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_i54qy")
+
+[node name="SpotLightHead" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.965926, -0.258819, 3.85671e-09, 0.258819, 0.965926, 5.07734e-10, -3.8567e-09, 5.07745e-10, 1, 0.665692, 2.86805, -4.27373e-08)
+material_override = SubResource("StandardMaterial3D_a0uxo")
+mesh = SubResource("BoxMesh_ryy4y")
+
+[node name="SpotLightHeadCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 0.666, 2.868, 0)
+shape = SubResource("BoxShape3D_7panh")
+
+[node name="CircleLight" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.965926, -0.258819, -1.43935e-08, 0.258819, 0.965926, 1.10445e-08, 1.10445e-08, -1.43935e-08, 1, 0.917, 2.67, 0)
+material_override = SubResource("StandardMaterial3D_b3cow")
+mesh = SubResource("CylinderMesh_pdnk8")
+skeleton = NodePath("../..")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="SpotLightProjector" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.274798, -3.1426e-07, -0.961502, 0.961502, -4.82386e-07, 0.274798, -5.58363e-07, -1, 1.98258e-07, 1.01748, 2.72834, -0.00553639)
+spot_range = 58.788
+spot_attenuation = 0.196146
+spot_angle = 20.73
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(0.965926, -3.6225e-09, -0.258819, 0.258819, -1.47211e-09, 0.965926, -3.26669e-08, -1, 7.22902e-09, 0.948082, 2.554, 1.72854e-09)
