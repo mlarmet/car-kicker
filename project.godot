@@ -17,7 +17,7 @@ config/icon="res://assets/images/icon.png"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://scenes/Global.gd"
 
 [input]
 

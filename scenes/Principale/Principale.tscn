@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dund3snlbfun1" path="res://objects/SpotLight/SpotLight.tscn" id="8_v536s"]
 [ext_resource type="AudioStream" uid="uid://dc6nlii1kfepq" path="res://assets/audios/goal_sound.mp3" id="9_pyoay"]
 [ext_resource type="AudioStream" uid="uid://d2wkya3asvjds" path="res://assets/audios/count_down_sound.mp3" id="10_v21k0"]
-[ext_resource type="Script" path="res://SplitScreen.gd" id="11_3yvml"]
 [ext_resource type="AudioStream" uid="uid://c5br5vhx7us8y" path="res://assets/audios/bonus_take_sound.mp3" id="12_0sg0l"]
-[ext_resource type="Script" path="res://Pause_Menu.gd" id="12_wc3hi"]
+[ext_resource type="Script" path="res://scenes/SplitScreen.gd" id="13_dd67v"]
 [ext_resource type="FontFile" uid="uid://6y4nk0acb1db" path="res://assets/fonts/bruce-forever/BruceForeverRegular-X3jd2.ttf" id="14_wik5q"]
+[ext_resource type="Script" path="res://scenes/Pause_Menu.gd" id="15_uty8p"]
 
 [sub_resource type="Sky" id="Sky_cj6b8"]
 
@@ -324,7 +324,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("11_3yvml")
+script = ExtResource("13_dd67v")
 
 [node name="GridContainer" type="GridContainer" parent="IHM/SplitScreen"]
 layout_mode = 1
@@ -634,7 +634,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("12_wc3hi")
+script = ExtResource("15_uty8p")
 
 [node name="Panel" type="Panel" parent="IHM/Pause_Menu"]
 layout_mode = 1
