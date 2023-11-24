@@ -16,10 +16,10 @@ Keys List : First / Second Players
 ![Game Menu](./assets/images/game_menu.png)
 
 ## Split Screen Mode
-![Game Menu](./assets/images/game_split_screen.png)
+![Game Menu](./assets/images/game_split_screen.PNG)
 
 ## Above Camera Mode
-![Game Menu](./assets/images/game_above_camera.png)
+![Game Menu](./assets/images/game_above_camera.PNG)
 
 ## Author
 *Maxence LARMET*
